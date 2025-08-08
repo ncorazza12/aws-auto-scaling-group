@@ -1,4 +1,4 @@
-# app-dynamicsite-asg-aws
+# AWS Auto Scaling Group
 
 ## Arquitetura
 
