@@ -40,14 +40,14 @@ resource "aws_security_group" "sg-ec2" {
 
 # Load Balancer, Target Group and Listener
 resource "aws_lb_target_group" "ec2-lb-tg" {
-  name     = "ec2-lb-tg"
+  name     = "ec2-lb-tg-nickolas"
   protocol = "HTTP"
   port     = 80
   vpc_id   = var.vpc_id
 }
 
 resource "aws_lb" "ec2-lb" {
-  name               = "ec2-lb"
+  name               = "ec2-lb-nickolas"
   load_balancer_type = "application"
   subnets            = [var.sn_pub_az1a_id, var.sn_pub_az1c_id]
   security_groups    = [aws_security_group.sg-elb.id]
@@ -78,7 +78,7 @@ resource "aws_launch_template" "ec2-lt" {
 }
 
 resource "aws_autoscaling_group" "ec2-asg" {
-  name                = "ec2-asg"
+  name                = "ec2-asg-nickolas"
   desired_capacity    = var.asg_desired_capacity
   min_size            = var.asg_min_size
   max_size            = var.asg_max_size
